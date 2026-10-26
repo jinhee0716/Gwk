@@ -1,0 +1,252 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1280">
+<title>센터 내부 업무포털</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans CJK KR','Noto Sans KR','Malgun Gothic',sans-serif;font-size:14px;color:#1f2328;background:#f1f2f4;width:1440px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.util{background:#fff;border-bottom:1px solid #d3d6db;height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;font-size:12px;color:#5a6068}
+.util b{color:#1f2328;font-weight:600}
+.util .sep{display:inline-block;width:1px;height:10px;background:#c4c8ce;margin:0 10px;vertical-align:middle}
+.hd{background:#fff;padding:18px 40px 0;border-bottom:1px solid #b9bdc4}
+.hd-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand .t1{font-size:21px;font-weight:700;letter-spacing:-.3px;color:#14284b;line-height:1.2}
+.brand .t2{font-size:11.5px;color:#6a7078;letter-spacing:.2px}
+.srch{display:flex;border:1px solid #9aa0a8;height:36px;width:380px}
+.srch span{flex:1;padding:7px 12px;color:#868c94;font-size:13px}
+.srch i{width:62px;background:#14284b;color:#fff;font-style:normal;font-size:13px;text-align:center;line-height:34px}
+.nav{display:flex;gap:0}
+.nav a{padding:11px 30px 12px;font-size:15.5px;font-weight:500;color:#4a5058;border-bottom:3px solid transparent;margin-bottom:-1px}
+.nav a.on{color:#14284b;font-weight:700;border-bottom-color:#a98a47}
+.nav a .c{font-size:11.5px;font-weight:600;margin-left:6px;color:#fff;background:#14284b;padding:0 6px;display:inline-block;line-height:17px}
+.wrap{padding:22px 40px 40px}
+.band{background:#fff;border:1px solid #c9cdd3;border-left:4px solid #14284b;padding:26px 32px;display:flex;justify-content:space-between;align-items:flex-end}
+.band h1{font-size:29px;font-weight:700;letter-spacing:-.8px;color:#1b1f24;line-height:1.35}
+.band p{margin-top:8px;font-size:14.5px;color:#4a5058;max-width:760px}
+.band .r{text-align:right;font-size:12.5px;color:#5a6068;line-height:1.75;border-left:1px solid #d3d6db;padding-left:28px}
+.band .r b{color:#1f2328;font-weight:600}
+.band .r em{font-style:normal;color:#14284b;font-weight:700}
+.strip{display:flex;background:#fff;border:1px solid #c9cdd3;margin-top:14px}
+.strip>div{flex:1;padding:13px 20px;border-right:1px solid #dcdfe3}
+.strip>div:last-child{border-right:0}
+.strip .l{font-size:12px;color:#5a6068}
+.strip .v{font-size:25px;font-weight:700;letter-spacing:-.5px;color:#1f2328;line-height:1.25;font-variant-numeric:tabular-nums}
+.strip .v small{font-size:13px;font-weight:500;color:#5a6068;margin-left:3px}
+.strip .n{font-size:11.5px;color:#6a7078}
+.strip .w .v{color:#14284b}
+.strip .w{box-shadow:inset 0 -3px 0 #a98a47}
+.grid{display:grid;gap:14px;margin-top:14px}
+.g21{grid-template-columns:1fr 430px}
+.main .g21{grid-template-columns:minmax(0,1fr) 392px}
+.main .g21>div:last-child table:not(.kv) td{white-space:nowrap;padding:9px 8px}
+.main .g21>div:last-child table:not(.kv) th{padding:8px 8px}
+td.num{white-space:nowrap}
+.g12{grid-template-columns:430px 1fr}
+.pn{background:#fff;border:1px solid #c9cdd3;border-top:2px solid #3a3f47}
+.pn-h{display:flex;justify-content:space-between;align-items:baseline;padding:11px 18px 10px;border-bottom:1px solid #dcdfe3}
+.pn-h h3{font-size:15.5px;font-weight:700;letter-spacing:-.3px}
+.pn-h a{font-size:12px;color:#14284b;text-decoration:underline;text-underline-offset:2px}
+.pn-b{padding:0}
+.pn-p{padding:14px 18px}
+table{width:100%;border-collapse:collapse}
+th{background:#f3f4f6;font-size:12px;font-weight:600;color:#4a5058;text-align:left;padding:8px 14px;border-bottom:1px solid #9aa0a8;white-space:nowrap}
+td{font-size:13px;padding:9px 14px;border-bottom:1px solid #e4e6ea;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.num,th.num{font-variant-numeric:tabular-nums}
+td.g{font-weight:700;font-size:14px;color:#1f2328;text-align:center;width:54px}
+td .s{display:block;font-size:11.5px;color:#6a7078}
+tr.hl td{background:#faf7ef}
+tr.hl td:first-child{box-shadow:inset 3px 0 0 #a98a47}
+.b{display:inline-block;font-size:11.5px;font-weight:600;line-height:17px;padding:0 6px;border:1px solid #8a9099;color:#3a3f47;white-space:nowrap}
+.b.n{background:#14284b;border-color:#14284b;color:#fff}
+.b.d{background:#3a3f47;border-color:#3a3f47;color:#fff}
+.b.g{border-color:#a98a47;color:#6e5822;background:#fff}
+.b.k{border-color:#c4c8ce;color:#6a7078}
+.mk{background:#bfc4cb;color:transparent;user-select:none;display:inline-block;line-height:12px;vertical-align:middle}
+.lk{color:#6a7078;font-size:12px}
+.ls{list-style:none}
+.ls li{display:flex;gap:10px;padding:9px 18px;border-bottom:1px solid #e4e6ea;font-size:13px;align-items:baseline}
+.ls li:last-child{border-bottom:0}
+.ls .tg{flex:none;font-size:11.5px;font-weight:600;color:#14284b;min-width:54px}
+.ls .tt{flex:1;line-height:1.45}
+.ls .dt{flex:none;font-size:11.5px;color:#7a8088;font-variant-numeric:tabular-nums}
+.ls .nw{display:inline-block;width:6px;height:6px;background:#a98a47;margin-right:5px;vertical-align:middle;position:relative;top:-1px}
+.note{font-size:12px;color:#5a6068;padding:9px 18px;border-top:1px solid #e4e6ea;background:#fafafb;line-height:1.55}
+.nt2{border:1px solid #c9cdd3;border-left:3px solid #a98a47;background:#fbfaf6;padding:11px 14px;font-size:12.5px;color:#3a3f47;line-height:1.6}
+.nt2 b{color:#1f2328}
+.kv{width:100%}
+.kv td{padding:8px 18px}
+.kv td:first-child{width:128px;color:#5a6068;font-size:12.5px;background:#fafafb;border-right:1px solid #e4e6ea}
+.pg{height:5px;background:#dfe2e6;width:64px;display:inline-block;vertical-align:middle;margin-right:8px}
+.pg i{display:block;height:5px;background:#14284b}
+.pg.w i{background:#a98a47}
+.body{display:flex;gap:0;margin-top:0}
+.lnb{width:208px;flex:none;background:#fff;border:1px solid #c9cdd3;border-top:2px solid #14284b;align-self:flex-start;margin-right:16px}
+.lnb h2{font-size:15.5px;font-weight:700;padding:14px 18px;border-bottom:1px solid #dcdfe3;color:#14284b}
+.lnb a{display:flex;justify-content:space-between;padding:10px 18px;font-size:13.5px;color:#3a3f47;border-bottom:1px solid #eceef0}
+.lnb a.on{background:#f1f3f7;font-weight:700;color:#14284b;box-shadow:inset 3px 0 0 #a98a47}
+.lnb a i{font-style:normal;font-size:11.5px;color:#6a7078}
+.lnb .gp{font-size:11.5px;color:#7a8088;padding:9px 18px 4px;background:#fafafb;border-bottom:1px solid #eceef0}
+.main{flex:1;min-width:0}
+.crumb{font-size:12px;color:#6a7078;margin-bottom:10px}
+.ptitle{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px}
+.ptitle h1{font-size:24px;font-weight:700;letter-spacing:-.6px}
+.ptitle p{font-size:13px;color:#5a6068;margin-top:2px}
+.ptitle .t{font-size:12px;color:#5a6068;text-align:right}
+.ft{border-top:1px solid #b9bdc4;background:#fff;padding:20px 40px 26px;font-size:12px;color:#6a7078;line-height:1.7;display:flex;justify-content:space-between}
+.ft b{color:#3a3f47;font-weight:600}
+
+body{width:auto;min-width:1280px}
+.util,.hd{padding-left:max(40px,calc((100% - 1440px)/2 + 40px));padding-right:max(40px,calc((100% - 1440px)/2 + 40px))}
+.wrap{max-width:1440px;margin:0 auto}
+.ft{padding-left:max(40px,calc((100% - 1440px)/2 + 40px));padding-right:max(40px,calc((100% - 1440px)/2 + 40px))}
+.nav a{cursor:pointer;user-select:none}
+.nav a:hover{color:#14284b;background:#f6f7f9}
+.srch input{flex:1;border:0;outline:0;padding:7px 12px;font:inherit;font-size:13px;color:#1f2328;background:#fff}
+.srch i{cursor:pointer}
+.view{display:none}.view.on{display:block}
+.util a,.pn-h a,.lnb a{cursor:pointer}
+.util a:hover{color:#14284b;text-decoration:underline}
+.lnb a:hover{background:#f6f7f9}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:#f6f8fb}
+tr.hl:hover td{background:#f5f0e2}
+.kv tr{cursor:default}.kv tr:hover td{background:inherit}.kv td:first-child{background:#fafafb!important}
+th{cursor:pointer;user-select:none}
+th:hover{color:#14284b}
+th.so::after{content:' \25B2';font-size:9px;color:#a98a47}
+th.sd::after{content:' \25BC';font-size:9px;color:#a98a47}
+.ls li{cursor:pointer}.ls li:hover{background:#f6f8fb}
+.b{cursor:default}
+.b.act{cursor:pointer}
+.b.act:hover{filter:brightness(.92);text-decoration:underline}
+tr.flash td{animation:fl 2.4s ease-out}
+@keyframes fl{0%,40%{background:#f1e6c6}100%{background:transparent}}
+#ov{position:fixed;inset:0;background:rgba(20,26,36,.45);display:none;align-items:flex-start;justify-content:center;padding-top:9vh;z-index:50}
+#ov.on{display:flex}
+#md{background:#fff;width:560px;max-width:92vw;max-height:80vh;overflow:auto;border:1px solid #6a7078;border-top:3px solid #14284b}
+#md h2{font-size:17px;padding:16px 22px 12px;border-bottom:1px solid #dcdfe3;letter-spacing:-.3px}
+#md .mb{padding:4px 0}
+#md .mt{padding:14px 22px;font-size:13px;color:#3a3f47;line-height:1.65}
+#md .mf{display:flex;justify-content:flex-end;gap:8px;padding:12px 22px;border-top:1px solid #dcdfe3;background:#fafafb}
+.btn{font:inherit;font-size:13px;padding:7px 18px;border:1px solid #8a9099;background:#fff;color:#1f2328;cursor:pointer}
+.btn:hover{background:#f1f3f7}
+.btn.p{background:#14284b;border-color:#14284b;color:#fff}.btn.p:hover{background:#0f2040}
+.btn.d{border-color:#a98a47;color:#6e5822}
+#tt{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);background:#2b2f36;color:#fff;font-size:13px;padding:10px 22px;display:none;z-index:60;border-left:3px solid #a98a47}
+#tt.on{display:block}
+.mk.rv{background:none;color:#14284b}
+</style></head><body>
+<div class="util"><div>내부망 전용 &nbsp;<span class="sep"></span>보안등급 <b>내부</b> &nbsp;<span class="sep"></span>외부 반출·촬영 금지 &nbsp;<span class="sep"></span><span id="clk">2155.04.14 14:20:08</span></div>
+<div><span id="usr"></span><span class="sep"></span>세션 잔여 <b id="ses">58:12</b><span class="sep"></span><a data-k="log">정보보호 안내</a><span class="sep"></span><a data-k="out">로그아웃</a></div></div>
+<div class="hd"><div class="hd-top"><div class="brand"><svg width="44" height="44" viewBox="0 0 44 44"><rect width="44" height="44" fill="#14284b"/>
+<path d="M22 8 A14 14 0 1 0 36 22" fill="none" stroke="#fff" stroke-width="2.4"/>
+<path d="M22 14 A8 8 0 1 0 30 22" fill="none" stroke="#fff" stroke-width="1.4" opacity=".7"/>
+<rect x="10" y="38" width="24" height="2" fill="#a98a47"/><rect x="35" y="7" width="2.4" height="2.4" fill="#a98a47"/></svg><div><div class="t1">센터 내부 업무포털</div><div class="t2">게이트·빌런 대응 통합 업무 시스템</div></div></div>
+<div class="srch"><input id="q" placeholder="게이트 번호, 사번, 문서번호 검색"><i id="qb">검색</i></div></div><div class="nav"><a data-v="home">홈</a><a data-v="hero">히어로</a><a data-v="hunter">헌터</a><a data-v="operator">오퍼레이터</a><a data-v="research">연구직</a><a data-v="office">일반 사무</a></div></div>
+<section class="view" id="v-home" data-user="일반 사무직 <b>정미숙</b> (총무팀)"><div class="wrap">
+<div class="band"><div><h1>헌터는 게이트를, 히어로는 사람을 지킵니다.</h1>
+<p>시장에서 경쟁하며 괴수를 쫓는 헌터와, 제도 안에서 법을 집행하고 시민을 보호하는 히어로. 센터는 서로 다른 두 직역이 같은 현장에서 만나도록 뒷받침합니다.</p></div>
+<div class="r">2155.04.14 &nbsp;14:20<br>게이트 최초 발생 후 <em>32,951</em>일차<br>복무 입소 <b>155차</b> (봄) &nbsp;/&nbsp; 히어로 아카데미 <b>45기</b></div></div>
+<div class="strip"><div><div class="l">활성 게이트</div><div class="v">41<small>건</small></div><div class="n">전일 대비 +2</div></div><div class="w"><div class="l">붕괴 임박 (24시간 이내)</div><div class="v">3<small>건</small></div><div class="n">A급 1, C변 1, D급 1</div></div><div><div class="l">변이 게이트</div><div class="v">2<small>건</small></div><div class="n">철수 기준 강화 적용</div></div><div><div class="l">브레이크</div><div class="v">0<small>건</small></div><div class="n">금일 발생 없음</div></div><div><div class="l">강제소집</div><div class="v">미발동</div><div class="n">평시 체제</div></div><div><div class="l">공인 위험인물 추적</div><div class="v">7<small>명</small></div><div class="n">위협도 3단계 이상</div></div></div>
+<div class="grid g21"><div class="pn"><div class="pn-h"><h3>게이트 현황</h3><a>전체 목록 41건 보기</a></div><div class="pn-b"><table><thead><tr><th style="width:112px">게이트 번호</th><th>관할</th><th style="width:54px">등급</th><th>상태</th><th style="width:100px">붕괴 한계</th><th>공략 배정</th></tr></thead><tbody><tr class="hl"><td>G-55-0391</td><td>북부2구 제련단지</td><td class="g">A</td><td>공략 진행 중 <span class="b n">긴급</span></td><td class="num">06:12:40</td><td>합동 공략 (센터 직속·길드 연합)</td></tr><tr class="hl"><td>G-55-0402</td><td>서부1구 해안로</td><td class="g">C변</td><td>철수 기준 강화 적용 <span class="b n">긴급</span></td><td class="num">31:05:12</td><td>지정 투입 (센터 소속 헌터)</td></tr><tr><td>G-55-0398</td><td>경계 구역 제9호</td><td class="g">S</td><td>센터 직속 지휘 <span class="b k">열람 제한</span></td><td class="num"><span class="lk">열람 제한</span></td><td><span class="lk">상세 열람 4등급 이상</span></td></tr><tr><td>G-55-0410</td><td>동부4구 공단로</td><td class="g">B</td><td>후보군 선별 중</td><td class="num">11일</td><td>후보군 선정 기준 공개 중</td></tr><tr><td>G-55-0411</td><td>남부1구 중앙시장</td><td class="g">C</td><td>감응형 정찰 중 <span class="b g">핵 위치 불확실</span></td><td class="num">04일</td><td>공략권 배정 전</td></tr><tr><td>G-55-0407</td><td>중앙3구 주거지</td><td class="g">E</td><td>입찰 접수 중 (신인 슬롯)</td><td class="num">21일</td><td>신인 후보군 3개 팀 입찰</td></tr><tr><td>G-55-0396</td><td>서부3구 물류단지</td><td class="g">A</td><td>공략권 배정 완료</td><td class="num">02일</td><td>길드 연합 낙찰</td></tr><tr><td>G-55-0405</td><td>북부1구 하천로</td><td class="g">D</td><td>공략 완료, 마석 신고 중</td><td class="num">종료</td><td>대형 길드 (신고 접수 완료)</td></tr></tbody></table></div><div class="note">※ 등급과 붕괴 한계 시간은 오퍼레이터팀이 실시간 갱신합니다. 변이 게이트는 등급 뒤에 &lsquo;변&rsquo;을 붙여 표기합니다.</div></div><div class="pn"><div class="pn-h"><h3>공지사항</h3><a>더보기</a></div><div class="pn-b"><ul class="ls"><li><span class="tg">긴급</span><span class="tt"><span class="nw"></span>서부1구 C변 게이트 철수 기준 적용 및 후방 소탕조 대기 안내</span><span class="dt">04.14</span></li><li><span class="tg">인사</span><span class="tt"><span class="nw"></span>복무 입소 155차 기초 교육 계열별 훈련 일정 안내</span><span class="dt">04.14</span></li><li><span class="tg">아카데미</span><span class="tt"><span class="nw"></span>45기 멘토 공개 추첨 결과 및 조 편성 확정 공고</span><span class="dt">04.13</span></li><li><span class="tg">규정</span><span class="tt">침식 검진 미수검 직원 최종 안내 (4월 30일 마감)</span><span class="dt">04.13</span></li><li><span class="tg">보안</span><span class="tt">가이드 보호 등록 정보 열람 로그 정기 감사 결과 공유</span><span class="dt">04.12</span></li><li><span class="tg">게이트</span><span class="tt">신인 슬롯 배정 기준 및 후보군 공개 항목 갱신</span><span class="dt">04.11</span></li><li><span class="tg">복무</span><span class="tt">복무 기간 추가 단축 논의 관련 직원 의견 수렴</span><span class="dt">04.10</span></li><li><span class="tg">총무</span><span class="tt">마석 취급 구역 차폐 용기 점검 및 근무자 검진 안내</span><span class="dt">04.09</span></li><li><span class="tg">감사</span><span class="tt">지정 투입 손실 보전 청구 처리 지연 건 경과 안내</span><span class="dt">04.08</span></li></ul></div></div></div><div class="grid g21"><div class="pn"><div class="pn-h"><h3>빌런·폭주 동향</h3><a>동향 상세</a></div><div class="pn-b"><table><thead><tr><th style="width:112px">구분</th><th style="width:104px">번호</th><th style="width:70px">위협도</th><th>상태</th><th>최종 확인 위치</th><th>상세 열람</th></tr></thead><tbody><tr><td>공인 위험인물</td><td>R-4-0072</td><td class="num">4단계</td><td>추적 중</td><td>북부 <span class="mk">■■■■■■</span></td><td><span class="lk">빌런전담부서·히어로</span></td></tr><tr><td>공인 위험인물</td><td>R-3-0148</td><td class="num">3단계</td><td>도주 중</td><td>남부2구 <span class="mk">■■■■■</span></td><td><span class="lk">빌런전담부서·히어로</span></td></tr><tr><td>공인 위험인물</td><td>R-3-0155</td><td class="num">3단계</td><td>반복 중범죄, 체포조 편성</td><td>동부 <span class="mk">■■■■■■</span></td><td><span class="lk">빌런전담부서·히어로</span></td></tr><tr><td>빌런 사건</td><td>V-0414-02</td><td class="num">2단계</td><td>수사 중 (용의자 1명 검거)</td><td>동부1구 상가</td><td>열람 가능</td></tr><tr><td>폭주 사고</td><td>B-0414-01</td><td class="num">—</td><td>진압반 대응 중, 환자 안정 진행</td><td>중앙2구</td><td>열람 가능 <span class="b k">빌런 지정 대상 아님</span></td></tr></tbody></table></div><div class="note">※ 센터 공인 위험인물 정보는 열람 등급에 따라 일부 항목이 가려집니다. 폭주는 범죄가 아닌 사고로 분류하며 공인 위험인물로 지정할 수 없습니다.</div></div><div class="pn"><div class="pn-h"><h3>직군별 업무 공간</h3></div><div class="pn-b"><table><thead><tr><th>직군 업무 공간</th><th>주요 업무</th><th style="width:70px">처리 대기</th></tr></thead><tbody><tr><td><b>히어로</b></td><td>출동 배정, 위험인물 상황 매뉴얼</td><td class="num">3건</td></tr><tr><td><b>헌터</b></td><td>공략권 배정, 마석 신고, 가이드 신청</td><td class="num">2건</td></tr><tr><td><b>오퍼레이터</b></td><td>실시간 상황판, 철수 권고, 지정 투입</td><td class="num">5건</td></tr><tr><td><b>연구직</b></td><td>연구 과제, 시료·데이터 요청</td><td class="num">3건</td></tr><tr><td><b>일반 사무</b></td><td>전자결재, 근태, 복무 요원 행정</td><td class="num">4건</td></tr></tbody></table></div></div></div></div></section>
+<section class="view" id="v-hero" data-user="2급 히어로 <b>한서진</b> (빌런전담부서 제3팀)"><div class="wrap"><div class="body"><div class="lnb"><h2>히어로 업무</h2><a class="on"><span>출동·배정</span><i>3</i></a><a class=""><span>위험인물 상황 매뉴얼</span><i>1</i></a><a class=""><span>수습 지도(사수)</span></a><a class=""><span>아카데미·멘토</span></a><div class="gp">인사·복무</div><a class=""><span>평가·징계 이력</span></a><a class=""><span>급여·후원 분배</span></a><a class=""><span>이미지·미디어 관리</span></a><a class=""><span>이동·거주 신고</span></a></div><div class="main"><div class="crumb">홈 &gt; 히어로</div>
+<div class="ptitle"><div><h1>히어로 업무</h1><p>법 집행과 시민 보호. 출동 배정과 위험인물 정보는 이 화면에서 확인합니다.</p></div><div class="t">2155.04.14 14:20 기준</div></div><div class="strip"><div><div class="l">현재 등급</div><div class="v">2급</div><div class="n">히어로협회 인증 유효</div></div><div><div class="l">침식 검진</div><div class="v">경미</div><div class="n">다음 검진 9일 후</div></div><div><div class="l">이번 달 출동</div><div class="v">11<small>건</small></div><div class="n">제압 보고서 11건 제출</div></div><div class="w"><div class="l">상황 매뉴얼 미확인</div><div class="v">1<small>건</small></div><div class="n">출동 전 숙지 확인 필수</div></div><div><div class="l">미디어 노출 승인</div><div class="v">1<small>건</small></div><div class="n">센터 홍보부서 검토 중</div></div></div><div class="grid g21"><div><div class="pn"><div class="pn-h"><h3>오늘의 출동 배정</h3><a>배정 이력</a></div><div class="pn-b"><table><thead><tr><th style="width:64px">시각</th><th style="width:88px">구분</th><th>내용</th><th style="width:64px">위협도</th><th>동행</th><th>상태</th></tr></thead><tbody><tr><td class="num">09:30</td><td>빌런 대응</td><td>동부1구 상가 침입 사건 수사 지원</td><td class="num">2단계</td><td>3급 박민재</td><td>완료</td></tr><tr class="hl"><td class="num">15:00</td><td>체포 작전</td><td>R-3-0155 체포조 편성 (경찰 봉쇄 협조)</td><td class="num">3단계</td><td>수습 1명 동행</td><td><span class="b g">매뉴얼 미확인</span></td></tr><tr><td class="num">19:00</td><td>순찰</td><td>중앙2구 야간 순찰</td><td class="num">—</td><td>단독</td><td>예정</td></tr></tbody></table></div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>공인 위험인물 상황 매뉴얼</h3><a>전체 매뉴얼</a></div><div class="pn-b"><table><thead><tr><th style="width:96px">지정번호</th><th style="width:64px">위협도</th><th>체포 방침</th><th>사살 허용</th><th style="width:90px">개정</th><th style="width:100px">숙지 확인</th></tr></thead><tbody><tr><td>R-4-0072</td><td class="num">4단계</td><td>체포 우선</td><td>조건부 허용 (매뉴얼 3항)</td><td class="num">v4 04.10</td><td><span class="b n">확인 완료</span></td></tr><tr class="hl"><td>R-3-0155</td><td class="num">3단계</td><td>체포 우선</td><td>인질 발생 시 조건부 허용</td><td class="num">v1 04.13</td><td><span class="b g">미확인</span></td></tr><tr><td>R-3-0148</td><td class="num">3단계</td><td>체포 우선</td><td>불허</td><td class="num">v2 04.02</td><td><span class="b n">확인 완료</span></td></tr></tbody></table></div><div class="note">※ 추적에 참여하는 모든 인원은 매뉴얼을 따라야 합니다. 사살 허용 여부는 현장 재량이 아니라 매뉴얼이 정하며, 매뉴얼을 벗어난 사살은 진상 규명 대상입니다.</div></div></div><div><div class="pn"><div class="pn-h"><h3>수습 지도 (사수)</h3></div><div class="pn-b"><table class="kv"><tr><td>담당 수습</td><td>서도윤 (루트 A)</td></tr><tr><td>수습 기간</td><td>6개월 중 4개월차</td></tr><tr><td>공동 서명 대기</td><td>보고서 2건</td></tr><tr><td>3급 임관 추천서</td><td>작성 예정 (2개월 후)</td></tr><tr><td>숙소</td><td>별도 숙소동 (평가·사생활 분리)</td></tr></table></div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>아카데미 45기 · 멘토</h3></div><div class="pn-b"><table class="kv"><tr><td>멘토 추첨</td><td>확정 (12조, 멘토 12명)</td></tr><tr><td>담당 조</td><td>4조 (후보생 5명)</td></tr><tr><td>다음 면담</td><td>04.28 (분기 1회)</td></tr><tr><td>유의</td><td>평가권 없음, 현장 동행 금지</td></tr></table></div></div><div style="height:14px"></div><div class="nt2"><b>추가 소득 금지 안내</b><br>광고 출연료, 후원금, 현상금은 센터로 귀속됩니다. 광고·사업·투자·강연 등 추가 소득이 발생할 경우 사전 신고하십시오. 미신고 시 수당 삭감과 출동 배정 감소의 대상이 됩니다.</div></div></div></div></div></div></section>
+<section class="view" id="v-hunter" data-user="센터 소속 헌터 <b>오태민</b> (B급, 즉응 대기 1팀)"><div class="wrap"><div class="body"><div class="lnb"><h2>헌터 업무</h2><a class="on"><span>공략 배정</span><i>3</i></a><a class=""><span>즉응 대기 관리</span></a><a class=""><span>장비·가이드 신청</span><i>2</i></a><a class=""><span>마석 신고·정산</span><i>2</i></a><a class=""><span>현상금 공고</span></a><div class="gp">자격·교육</div><a class=""><span>안전 교육 이력</span></a><a class=""><span>헌터협회 등록</span></a><a class=""><span>길드 협력 창구</span></a></div><div class="main"><div class="crumb">홈 &gt; 헌터</div>
+<div class="ptitle"><div><h1>헌터 업무</h1><p>게이트 공략과 괴수 처리. 센터 소속 헌터(즉응 대기)의 배정과 신고를 처리합니다.</p></div><div class="t">2155.04.14 14:20 기준</div></div><div class="strip"><div><div class="l">대기 상태</div><div class="v">즉응 대기</div><div class="n">04.14 08:00 교대</div></div><div class="w"><div class="l">지정 투입 순위</div><div class="v">1<small>순위</small></div><div class="n">C변 G-55-0402 기준</div></div><div><div class="l">최근 30일 투입</div><div class="v">3<small>건</small></div><div class="n">철수 권고 수용 3건</div></div><div><div class="l">마석 신고 대기</div><div class="v">2<small>건</small></div><div class="n">센터 귀속 정산 대상</div></div><div><div class="l">침식 단계</div><div class="v">경미</div><div class="n">다음 검진 14일 후</div></div></div><div class="grid g21"><div><div class="pn"><div class="pn-h"><h3>공략 배정 현황</h3><a>배정 이력</a></div><div class="pn-b"><table><thead><tr><th style="width:104px">구분</th><th style="width:96px">게이트</th><th style="width:54px">등급</th><th>배정 사유</th><th style="width:92px">정찰 정보</th><th style="width:104px">장비·가이드</th></tr></thead><tbody><tr class="hl"><td class="num">지정 투입 대기</td><td>G-55-0402</td><td class="g">C변</td><td>급박 시 1순위 지정, 변이 게이트</td><td>선공유 완료</td><td><span class="b n">가이드 확정</span></td></tr><tr><td class="num">기피 게이트 배정</td><td>G-55-0411</td><td class="g">C</td><td>핵 위치 불확실, 저수익</td><td>정찰 중</td><td>신청 중</td></tr><tr><td class="num">후보군 연락</td><td>G-55-0410</td><td class="g">B</td><td>후보군 선정 기준 충족</td><td>선공유 완료</td><td class="num">장비 우선 배정</td></tr></tbody></table></div><div class="note">※ 센터 소속 헌터에게는 입찰 가산점이 없습니다. 장비·가이드 우선 배정과 정찰 정보 선공유가 제공되며, 길드가 기피하는 게이트를 맡는 부담이 있습니다.</div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>마석 신고·정산</h3><a>신고 작성</a></div><div class="pn-b"><table><thead><tr><th style="width:96px">신고번호</th><th style="width:96px">게이트</th><th style="width:54px">등급</th><th style="width:110px">차폐 용기</th><th>진행</th><th>수익</th></tr></thead><tbody><tr><td>M-0413-07</td><td>G-55-0405</td><td class="g">D</td><td>CS-2291</td><td>센터 접수</td><td>센터 귀속</td></tr><tr><td>M-0413-08</td><td>G-55-0405</td><td class="g">C</td><td>CS-2292</td><td>감정사 판정 대기</td><td>센터 귀속</td></tr></tbody></table></div><div class="note">※ 마석은 센터에 반드시 신고해야 하며, 채굴·운반에는 차폐 용기가 의무입니다. 센터 소속 헌터의 마석 수익은 센터로 귀속됩니다.</div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>현상금 공고 (센터 공인 위험인물)</h3></div><div class="pn-b"><table><thead><tr><th style="width:96px">지정번호</th><th style="width:64px">위협도</th><th>조건</th><th style="width:90px">현상금 등급</th><th>추적 참여</th></tr></thead><tbody><tr><td>R-3-0148</td><td class="num">3단계</td><td>도주 중, 생포 우대</td><td>4등급</td><td>매뉴얼 숙지 후 참여 가능</td></tr><tr><td>R-3-0155</td><td class="num">3단계</td><td>반복 중범죄, 생사 무관</td><td>4등급</td><td>체포조 편성 중 (히어로 주관)</td></tr></tbody></table></div><div class="note">※ 모든 추적자는 지정 인물의 상황 매뉴얼을 따라야 합니다. 현상금은 센터 예산에서 위험도와 생사 조건에 따라 책정됩니다.</div></div></div><div><div class="pn"><div class="pn-h"><h3>가이드 배정 신청</h3></div><div class="pn-b"><table><thead><tr><th>가이드 코드</th><th>상태</th><th>치료량 잔여</th><th>동의서</th></tr></thead><tbody><tr><td>GD-0172</td><td><span class="b n">배정 확정</span></td><td class="num">62%</td><td>접촉 수위 확인</td></tr><tr><td>GD-0209</td><td>신청 중</td><td class="num">—</td><td>회신 대기</td></tr></tbody></table></div><div class="note">※ 가이드 정보는 비식별 코드로만 표시됩니다. 접촉 수위와 일일 치료량 상한은 가이드 동의서와 보호 규정을 따릅니다.</div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>헌터협회·센터 공지</h3></div><div class="pn-b"><ul class="ls"><li><span class="tg">협회</span><span class="tt"><span class="nw"></span>안전 이수증 보수 교육 일정 (등급 상승자 대상)</span><span class="dt">04.12</span></li><li><span class="tg">게이트</span><span class="tt">소형 게이트 신인 슬롯(약 20%) 후보군 공개</span><span class="dt">04.11</span></li><li><span class="tg">협회</span><span class="tt">길드 인증 갱신 심사 결과 공고</span><span class="dt">04.09</span></li></ul></div></div></div></div></div></div></div></section>
+<section class="view" id="v-operator" data-user="오퍼레이터팀 <b>윤지아</b> (게이트 담당, 주간조)"><div class="wrap"><div class="body"><div class="lnb"><h2>오퍼레이터 업무</h2><a class="on"><span>실시간 상황판</span></a><a class=""><span>신고 접수</span><i>5</i></a><a class=""><span>지정 투입 지원</span><i>1</i></a><a class=""><span>철수 권고 이력</span></a><div class="gp">운영</div><a class=""><span>합동 상황실 편성</span></a><a class=""><span>교대 인수인계</span></a><a class=""><span>침식 판독 자격</span></a></div><div class="main"><div class="crumb">홈 &gt; 오퍼레이터</div>
+<div class="ptitle"><div><h1>오퍼레이터 업무</h1><p>게이트와 빌런 상황을 실시간으로 감시하고 현장과 연결합니다.</p></div><div class="t">2155.04.14 14:20:08 갱신</div></div><div class="strip"><div><div class="l">감시 중 게이트</div><div class="v">41<small>건</small></div><div class="n">등급·위험도 갱신 중</div></div><div><div class="l">공략 진행</div><div class="v">4<small>팀</small></div><div class="n">A급 1, B급 1, C급 1, D급 1</div></div><div class="w"><div class="l">철수·지원 권고 진행</div><div class="v">2<small>건</small></div><div class="n">응답 대기 포함</div></div><div><div class="l">신고 접수 대기</div><div class="v">5<small>건</small></div><div class="n">최장 대기 12분</div></div><div><div class="l">가용 인력</div><div class="v">12<small>명</small></div><div class="n">지정 투입 후보</div></div></div><div class="grid g21"><div><div class="pn"><div class="pn-h"><h3>공략 진행 모니터링</h3><a>권고 이력</a></div><div class="pn-b"><table><thead><tr><th style="width:76px">게이트</th><th>파티</th><th>경과 / 한계</th><th>최고 침식</th><th style="width:68px">갱신</th><th>권고 상태</th></tr></thead><tbody><tr class="hl"><td class="num">G-55-0388 <span class="s">B</span></td><td class="num">중형 길드 파티 6명</td><td class="num"><span class="pg w"><i style="width:74%"></i></span>04:26 / 06:00</td><td class="num">심각 (1명)</td><td class="num">14:19:41</td><td><span class="b d">철수 권고 미수용</span></td></tr><tr class="hl"><td class="num">G-55-0401 <span class="s">C</span></td><td class="num">센터 소속 헌터 4명</td><td class="num"><span class="pg w"><i style="width:55%"></i></span>05:30 / 10:00</td><td class="num">임계 근접 (1명)</td><td class="num">14:20:03</td><td><span class="b g">가이드 투입 대기</span></td></tr><tr><td class="num">G-55-0391 <span class="s">A</span></td><td class="num">합동 12명 (센터·길드)</td><td class="num"><span class="pg "><i style="width:62%"></i></span>06:12 / 10:00</td><td>중등</td><td class="num">14:19:52</td><td>정상</td></tr><tr><td class="num">G-55-0393 <span class="s">D</span></td><td class="num">소형 길드 파티 5명</td><td class="num"><span class="pg "><i style="width:21%"></i></span>05:03 / 24:00</td><td>경미</td><td class="num">14:19:58</td><td>정상</td></tr></tbody></table></div><div class="note">※ 현장의 능력자는 자기 침식을 정확히 알지 못합니다. 침식 단계는 오퍼레이터가 파티와 별도로 판독하며, 임계에 가까우면 철수 또는 가이드 투입을 권고합니다.</div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>신고 접수 큐</h3><a>전체 접수 이력</a></div><div class="pn-b"><table><thead><tr><th style="width:56px">접수</th><th>유형</th><th>위치</th><th>연결 대상</th><th>상태</th></tr></thead><tbody><tr><td class="num">14:17</td><td>빌런 목격</td><td>남부2구 환승로</td><td>히어로 근접 2명, 경찰 봉쇄</td><td>연결 중</td></tr><tr><td class="num">14:15</td><td>게이트 발생 의심</td><td>동부3구 외곽</td><td>감응형 정찰 요청</td><td>판정 대기</td></tr><tr><td class="num">14:12</td><td>폭주 징후</td><td>중앙2구</td><td>폭주 진압반</td><td>출동 중</td></tr><tr><td class="num">14:09</td><td>균열 에너지 수치 이상</td><td>서부2구</td><td>센터 탐지 장비</td><td>확인 중</td></tr><tr><td class="num">14:02</td><td>민간 신고 (오인 가능)</td><td>북부3구</td><td>—</td><td>종결 검토</td></tr></tbody></table></div></div></div><div><div class="pn"><div class="pn-h"><h3>지정 투입 지원 · G-55-0402 (C변)</h3></div><div class="pn-b"><table><thead><tr><th style="width:80px">코드</th><th style="width:54px">등급</th><th style="width:64px">거리</th><th style="width:72px">침식</th><th style="width:100px">가이드 동행</th><th>지정</th></tr></thead><tbody><tr><td>U-0412</td><td class="g">B</td><td class="num">2.1km</td><td>경미</td><td>가능</td><td><span class="b n">1순위 지정 완료</span></td></tr><tr><td>U-0501</td><td class="g">C</td><td class="num">4.0km</td><td>경미</td><td>가능</td><td>대기</td></tr><tr><td>U-0388</td><td class="g">B</td><td class="num">3.4km</td><td>중등</td><td>불가</td><td>대기</td></tr></tbody></table></div><div class="note">※ 응한 길드는 수익 손실을 보전받고 다음 입찰에서 우대받습니다. 거부 시 페널티가 부과됩니다.</div></div><div style="height:14px"></div><div class="nt2"><b>오퍼레이터 권한 범위</b><br>전술을 지시하지 않으며 철수 권고와 지원 요청 권한만 갖습니다. 현장 판단을 존중하되 안전선은 지킵니다. 철수 권고 후 파티와의 교신이 끊기면 즉시 합동 상황실에 보고하십시오.</div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>교대 인수인계</h3></div><div class="pn-b"><ul class="ls"><li><span class="tg">필수</span><span class="tt"><span class="nw"></span>G-55-0388 파티 철수 권고 미수용 경위 기록</span><span class="dt">14:08</span></li><li><span class="tg">필수</span><span class="tt"><span class="nw"></span>G-55-0401 가이드 투입 응답 확인</span><span class="dt">14:20</span></li><li><span class="tg">참고</span><span class="tt">야간조 인원 1명 결원, 지원 요청 중</span><span class="dt">13:40</span></li></ul></div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>자격</h3></div><div class="pn-b"><table class="kv"><tr><td>침식 판독 자격</td><td>유효 (갱신 21일 후)</td></tr><tr><td>교대</td><td>주간조 (08:00~16:00)</td></tr><tr><td>담당</td><td>게이트 담당 3번 콘솔</td></tr></table></div></div></div></div></div></div></div></section>
+<section class="view" id="v-research" data-user="연구직 <b>최도현</b> (균열에너지연구실)"><div class="wrap"><div class="body"><div class="lnb"><h2>연구직 업무</h2><a class="on"><span>과제 관리</span><i>12</i></a><a class=""><span>시료·데이터 요청</span><i>3</i></a><a class=""><span>검사 결과 조회</span><i>7</i></a><a class=""><span>연구윤리 심의</span><i>2</i></a><div class="gp">행정</div><a class=""><span>연구 예산</span></a><a class=""><span>보고서·논문</span></a><a class=""><span>차폐 보관고 점검</span></a></div><div class="main"><div class="crumb">홈 &gt; 연구직</div>
+<div class="ptitle"><div><h1>연구직 업무</h1><p>균열 에너지, 침식, 마석에 관한 연구 과제와 시료·데이터 요청을 관리합니다.</p></div><div class="t">2155.04.14 14:20 기준</div></div><div class="strip"><div><div class="l">진행 과제</div><div class="v">12<small>건</small></div><div class="n">대외비 4건</div></div><div><div class="l">시료 반출 승인 대기</div><div class="v">3<small>건</small></div><div class="n">균열 에너지 시료 포함</div></div><div><div class="l">검사 결과 대기</div><div class="v">7<small>건</small></div><div class="n">공명 반응 검사</div></div><div><div class="l">윤리 심의 대기</div><div class="v">2<small>건</small></div><div class="n">접촉 시험 포함</div></div><div class="w"><div class="l">예산 심의 보류</div><div class="v">1<small>건</small></div><div class="n">RS-55-002</div></div></div><div class="grid g21"><div><div class="pn"><div class="pn-h"><h3>연구 과제</h3><a>신규 과제 등록</a></div><div class="pn-b"><table><thead><tr><th style="width:92px">과제번호</th><th>과제명</th><th style="width:84px">단계</th><th style="width:64px">책임자</th><th style="width:72px">보안등급</th><th>비고</th></tr></thead><tbody><tr><td class="num">RS-55-021</td><td>침식 억제제 공명 감소율 보정</td><td>임상 2상</td><td>한지원</td><td>내부</td><td>부작용 보고 집계 중</td></tr><tr><td class="num">RS-55-017</td><td>가이딩 정화 메커니즘 정량화 (비식별 데이터)</td><td>분석</td><td>최도현</td><td>대외비</td><td>가이드 식별정보 불가</td></tr><tr><td class="num">RS-55-030</td><td>마석 취급 종사자 저농도 침식 누적 조사</td><td>현장 조사</td><td>오세영</td><td>내부</td><td>산재 자료 요청 증가</td></tr><tr><td class="num">RS-55-009</td><td>선천 발현자 증가 추세 분석</td><td>분석</td><td>박서하</td><td>내부</td><td>—</td></tr><tr><td class="num">RS-55-044</td><td>비전투 능력 산출물 균열 에너지 잔류 검사법 표준화</td><td>시험</td><td>최도현</td><td class="num">공개 가능</td><td>협회·관계 기관 협의</td></tr><tr class="hl"><td class="num">RS-55-002</td><td>게이트 발생 원인 규명 기초조사</td><td>심의 보류</td><td>윤성진</td><td>대외비</td><td><span class="b g">예산 심의 보류</span></td></tr></tbody></table></div><div class="note">※ 공식 입장은 &lsquo;원인 불명, 대응 우선&rsquo;입니다. 원인 규명 과제는 대응 업무 과제보다 예산 배정 순위가 낮게 심의됩니다.</div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>시료·데이터 요청</h3><a>요청 작성</a></div><div class="pn-b"><table><thead><tr><th style="width:96px">요청번호</th><th>대상</th><th style="width:64px">요청자</th><th>상태</th></tr></thead><tbody><tr><td class="num">DR-0411-03</td><td>균열 에너지 시료 (공명 반응 검사용) 반출</td><td>최도현</td><td><span class="b g">승인 대기</span></td></tr><tr><td class="num">DR-0410-11</td><td>마석 취급 종사자 검진 기록 (비식별)</td><td>오세영</td><td>승인 완료</td></tr><tr><td class="num">DR-0409-05</td><td>가이드 판별 검사 결과</td><td>최도현</td><td><span class="lk">열람 불가, 가이드보호부서 관할. 비식별 통계만 제공</span></td></tr><tr><td class="num">DR-0408-02</td><td>S급 마석 시료 (정기 경매 전 감정 자료)</td><td>윤성진</td><td>관리부서 협의 중</td></tr></tbody></table></div><div class="note">※ 가이드 판별 검사의 접촉 시험은 본인 동의가 필수이며, 가이드 식별 정보는 연구 목적이라도 제공되지 않습니다.</div></div></div><div><div class="pn"><div class="pn-h"><h3>차폐 보관고 점검</h3></div><div class="pn-b"><table class="kv"><tr><td>마석 시료</td><td>214건 보관, 이상 없음</td></tr><tr><td>차폐 용기</td><td>교체 필요 6건</td></tr><tr><td>최근 점검</td><td>04.12 (월간)</td></tr><tr><td>근무자 침식 검진</td><td>전원 수검 완료</td></tr></table></div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>연구실 공지</h3></div><div class="pn-b"><ul class="ls"><li><span class="tg">안전</span><span class="tt"><span class="nw"></span>고순도 마석 장시간 취급자 교대 기준 개정</span><span class="dt">04.13</span></li><li><span class="tg">윤리</span><span class="tt">접촉 시험 동의서 양식 개정(가이드 보호기구 표준)</span><span class="dt">04.10</span></li><li><span class="tg">예산</span><span class="tt">2분기 연구 예산 심의 일정</span><span class="dt">04.08</span></li></ul></div></div></div></div></div></div></div></section>
+<section class="view" id="v-office" data-user="일반 사무직 <b>정미숙</b> (총무팀)"><div class="wrap"><div class="body"><div class="lnb"><h2>일반 사무 업무</h2><a class="on"><span>전자결재</span><i>4</i></a><a class=""><span>근태·휴가</span></a><a class=""><span>복무 요원 행정</span></a><a class=""><span>정산·회계</span></a><div class="gp">시설·보안</div><a class=""><span>시설·장비 관리</span></a><a class=""><span>보안 교육</span></a><a class=""><span>민원·대외 응대</span><i>3</i></a></div><div class="main"><div class="crumb">홈 &gt; 일반 사무</div>
+<div class="ptitle"><div><h1>일반 사무 업무</h1><p>결재, 근태, 복무 요원 행정과 정산 등 센터 운영 전반의 사무를 처리합니다.</p></div><div class="t">2155.04.14 14:20 기준</div></div><div class="strip"><div class="w"><div class="l">결재 대기</div><div class="v">4<small>건</small></div><div class="n">기한 임박 1건</div></div><div><div class="l">잔여 연차</div><div class="v">11<small>일</small></div><div class="n">올해 사용 4일</div></div><div><div class="l">복무 입소 155차</div><div class="v">1,284<small>명</small></div><div class="n">기초 교육 2개월차</div></div><div><div class="l">귀속 정산 마감</div><div class="v">D-6</div><div class="n">마석 수익 센터 귀속분</div></div><div><div class="l">직원 검진 미수검</div><div class="v">17<small>명</small></div><div class="n">04.30 마감</div></div></div><div class="grid g21"><div><div class="pn"><div class="pn-h"><h3>전자결재함</h3><a>전체 보기</a></div><div class="pn-b"><table><thead><tr><th style="width:100px">문서번호</th><th>제목</th><th style="width:84px">기안</th><th style="width:56px">접수</th><th>상태</th></tr></thead><tbody><tr><td class="num">AP-0414-021</td><td>마석 차폐 용기 교체분 구매 요청 (6건)</td><td>시설관리</td><td class="num">04.14</td><td><span class="b n">결재 대기</span></td></tr><tr><td class="num">AP-0414-017</td><td>155차 입소자 숙소동 임시 증설 검토</td><td>복무지원</td><td class="num">04.14</td><td><span class="b n">결재 대기</span></td></tr><tr class="hl"><td class="num">AP-0411-009</td><td>지정 투입 손실 보전 청구 처리 지연 사유서</td><td>게이트부서</td><td class="num">04.11</td><td><span class="b g">기한 임박</span></td></tr><tr><td class="num">AP-0410-004</td><td>아카데미 45기 후보생 장비 지급 내역 확인</td><td>교육지원</td><td class="num">04.10</td><td><span class="b n">결재 대기</span></td></tr><tr><td class="num">AP-0409-013</td><td>2분기 복리후생 예산 집행 계획</td><td>총무팀</td><td class="num">04.09</td><td>참조</td></tr></tbody></table></div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>복무 요원 행정 (입소 155차)</h3><a>업무 지침</a></div><div class="pn-b"><table><thead><tr><th>항목</th><th>현황</th></tr></thead><tbody><tr><td>입소 인원 (155차)</td><td>1,284명 (기초 교육 2개월차, 공통 기초에서 계열별 훈련으로 전환 예정)</td></tr><tr><td>급여 지급</td><td>04.25 예정 (시장 급여의 30~40% 기준, 숙소·장비·의료 전액 지원)</td></tr><tr><td>숙소 가동률</td><td>93% (임시 증설 검토 중)</td></tr><tr><td>협회 시험 공가</td><td>접수 14건 (A급 이상 정예 배속자 우선 처리)</td></tr><tr><td>유예 문의</td><td>별도 유예 규정 없음. 다음 기수 선택 안내 후 종결 처리</td></tr></tbody></table></div><div class="note">※ 복무 요원은 공식 히어로가 아니며 광고·외부 활동이 금지됩니다. 얼굴과 이름은 비공개가 기본입니다.</div></div></div><div><div class="pn"><div class="pn-h"><h3>직원 침식 검진 (마석 취급 구역 근무자 포함)</h3></div><div class="pn-b"><table class="kv"><tr><td>대상</td><td>일반 직원 322명 (비능력자 포함)</td></tr><tr><td>수검 완료</td><td>305명</td></tr><tr><td>미수검</td><td>17명</td></tr><tr><td>마감</td><td>04.30</td></tr></table></div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>민원·대외 응대</h3></div><div class="pn-b"><table><thead><tr><th style="width:56px">접수</th><th>유형</th><th>처리</th></tr></thead><tbody><tr><td class="num">04.13</td><td>복무 거부자 차별 신고</td><td>제도개선팀 이관</td></tr><tr><td class="num">04.12</td><td>소집 중 해고 금지 위반 의심</td><td>사실 확인 중</td></tr><tr><td class="num">04.10</td><td>가산점 역차별 민원</td><td>답변 작성 중</td></tr></tbody></table></div><div class="note">※ 보도 협조 요청과 외부 문의는 홍보부서 단일 창구로 일원화합니다. 개별 답변 금지.</div></div><div style="height:14px"></div><div class="pn"><div class="pn-h"><h3>이번 주 일정</h3></div><div class="pn-b"><ul class="ls"><li><span class="tg">04.15</span><span class="tt"><span class="nw"></span>정기 보안 교육 (정보 열람 기록 감사 대응)</span><span class="dt">15:00</span></li><li><span class="tg">04.17</span><span class="tt">복무 지원 협의회</span><span class="dt">10:00</span></li><li><span class="tg">04.18</span><span class="tt">소방·대피 훈련 (전 직원)</span><span class="dt">14:00</span></li></ul></div></div></div></div></div></div></div></section>
+
+<div class="ft"><div><b>센터 정보보호관리관</b> 내선 1100 &nbsp;|&nbsp; 시스템 점검 매월 둘째 일요일 02:00~04:00<br>본 시스템의 모든 열람·출력·다운로드 내역은 정보보호규정에 따라 기록되며 감사 대상입니다.</div>
+<div style="text-align:right">센터 내부 업무포털 v14.2<br>최종 접속 2155.04.14 08:41</div></div>
+<div id="ov"><div id="md"></div></div><div id="tt"></div>
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const names={home:'홈',hero:'히어로',hunter:'헌터',operator:'오퍼레이터',research:'연구직',office:'일반 사무'};
+let logs=[], state={manual:false};
+function toast(m){const t=$('#tt');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),2600)}
+function modal(title,html,acts){ $('#md').innerHTML='<h2>'+title+'</h2><div class="mb">'+html+'</div><div class="mf"></div>';
+  const f=$('#md .mf'); (acts||[{t:'닫기'}]).forEach(a=>{const b=document.createElement('button');b.className='btn '+(a.c||'');b.textContent=a.t;b.onclick=()=>{close_(); a.f&&a.f()};f.appendChild(b)}); $('#ov').classList.add('on')}
+function close_(){$('#ov').classList.remove('on')}
+$('#ov').addEventListener('click',e=>{if(e.target.id==='ov')close_()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close_()});
+function kvh(pairs){return '<table class="kv">'+pairs.map(p=>'<tr><td>'+p[0]+'</td><td>'+p[1]+'</td></tr>').join('')+'</table>'}
+function show(id,push){ if(!names[id])id='home'; $$('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+id));
+  $$('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===id));
+  $('#usr').innerHTML=$('#v-'+id).dataset.user; if(push!==false)history.replaceState(null,'','#'+id); window.scrollTo(0,0); document.title=names[id]+' | 센터 내부 업무포털'}
+$$('.nav a').forEach(a=>a.onclick=()=>show(a.dataset.v));
+// clock & session
+let clk=new Date(2155,3,14,14,20,8), sess=58*60+12;
+function pad(n){return String(n).padStart(2,'0')}
+setInterval(()=>{clk=new Date(clk.getTime()+1000);sess=Math.max(0,sess-1);
+ $('#clk').textContent='2155.04.14 '+pad(clk.getHours())+':'+pad(clk.getMinutes())+':'+pad(clk.getSeconds());
+ $('#ses').textContent=pad(Math.floor(sess/60))+':'+pad(sess%60);
+ $$('[data-cd]').forEach(e=>{let s=+e.dataset.cd-1;if(s<0)s=0;e.dataset.cd=s;e.textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s%3600/60))+':'+pad(s%60)});
+ if(sess===300)toast('세션이 5분 후 만료됩니다.')},1000);
+$$('#v-home tbody tr').forEach(tr=>{const td=tr.children[4];if(td&&/^\d\d:\d\d:\d\d$/.test(td.textContent.trim())){const [h,m,s]=td.textContent.trim().split(':').map(Number);td.dataset.cd=h*3600+m*60+s}});
+$$('[data-cd]').forEach(e=>e.classList.add('cd'));
+// mark actionable badges
+function markAct(){ $$('.b').forEach(b=>{const t=b.textContent; if(/미확인|결재 대기|기한 임박|철수 권고 미수용|가이드 투입 대기|승인 대기/.test(t))b.classList.add('act')}) }
+markAct();
+function tblInfo(tr){const th=$$('thead th',tr.closest('table')).map(x=>x.textContent.trim());return [...tr.children].map((td,i)=>[th[i]||'',td])}
+function logAccess(what){logs.unshift(clkStr()+' | '+what);}
+function clkStr(){return pad(clk.getHours())+':'+pad(clk.getMinutes())+':'+pad(clk.getSeconds())}
+function cur(){return $('.view.on')}
+function recountOffice(){const v=$('#v-office');const n=$$('.b',v).filter(b=>/결재 대기|기한 임박/.test(b.textContent)).length;
+ $('.strip .v',v).innerHTML=n+'<small>건</small>';const li=$$('.lnb a i',v)[0];if(li)li.textContent=n||'';}
+function manualModal(code){
+ modal('상황 매뉴얼 · '+code,'<div class="mt">공인 위험인물 상황 매뉴얼을 숙지했음을 확인합니다. 추적에 참여하는 모든 인원은 매뉴얼을 따라야 하며, 사살 허용은 현장 재량이 아니라 매뉴얼이 정합니다.</div>'+kvh([['체포 방침','체포 우선'],['사살 허용','인질 발생 시 조건부 허용'],['접근 시 주의','능력 특성, 침식 상태, 인질 가능성 확인'],['신고·연락','빌런전담부서 상황실 → 합동 상황실']]),
+ [{t:'닫기'},{t:'숙지 확인',c:'p',f:()=>{state.manual=true;const v=$('#v-hero');
+  $$('.b',v).forEach(b=>{if(b.textContent==='미확인'){b.className='b n';b.textContent='확인 완료'}else if(b.textContent==='매뉴얼 미확인'){b.className='b n';b.textContent='출동 가능'}});
+  $$('.strip>div',v).forEach(d=>{if(d.textContent.includes('상황 매뉴얼 미확인')){d.classList.remove('w');$('.v',d).innerHTML='0<small>건</small>';$('.n',d).textContent='모두 확인 완료'}});
+  $$('.lnb a i',v).forEach(i=>{if(i.textContent==='1')i.textContent=''});
+  logAccess('매뉴얼 숙지 확인 '+code);toast('숙지 확인이 기록되었습니다.')}}])}
+document.addEventListener('click',e=>{
+ const b=e.target.closest('.b.act');
+ if(b){e.stopPropagation();const t=b.textContent,tr=b.closest('tr');
+  if(/미확인/.test(t)){const code=(tr.textContent.match(/R-\d-\d{4}/)||['R-3-0155'])[0];return manualModal(code)}
+  if(/결재 대기|기한 임박/.test(t)){const doc=tr.children[0].textContent,ti=tr.children[1].textContent;
+   return modal('전자결재 · '+doc,kvh([['제목',ti],['기안',tr.children[2].textContent],['접수일',tr.children[3].textContent]]),
+   [{t:'닫기'},{t:'반려',c:'d',f:()=>{b.className='b k';b.textContent='반려';tr.classList.remove('hl');recountOffice();toast('반려 처리되었습니다.')}},{t:'승인',c:'p',f:()=>{b.className='b';b.textContent='승인 완료';tr.classList.remove('hl');recountOffice();logAccess('결재 승인 '+doc);toast('승인 처리되었습니다.')}}])}
+  if(/철수 권고 미수용/.test(t))return modal('철수 권고 재발령 · G-55-0388','<div class="mt">철수 권고(14:08)가 12분째 수용되지 않았습니다. 오퍼레이터는 전술을 지시할 수 없으며 권고와 지원 요청만 발령할 수 있습니다.</div>',
+   [{t:'닫기'},{t:'합동 상황실 보고',c:'d',f:()=>{b.className='b g';b.textContent='상황실 보고 완료';toast('합동 상황실에 보고했습니다.')}},{t:'권고 재발령',c:'p',f:()=>{b.className='b g';b.textContent='재발령 '+clkStr().slice(0,5);logAccess('철수 권고 재발령 G-55-0388');toast('철수 권고를 재발령했습니다.')}}]);
+  if(/가이드 투입 대기/.test(t))return modal('가이드 투입 요청 · G-55-0401','<div class="mt">침식이 임계에 가까운 파티원 1명이 있습니다. 가이드 투입은 가이드의 동의와 접촉 수위 동의서 범위 안에서만 가능합니다.</div>',
+   [{t:'닫기'},{t:'가이드 배치 요청',c:'p',f:()=>{b.className='b n';b.textContent='가이드 요청 발송';toast('가이드보호부서에 요청을 보냈습니다.')}}]);
+  if(/승인 대기/.test(t))return modal('시료 반출 승인',kvh([['요청','DR-0411-03'],['대상','균열 에너지 시료 (공명 반응 검사용)'],['반출 조건','차폐 용기, 반출 기록 필수']]),[{t:'닫기'},{t:'승인 요청 상신',c:'p',f:()=>{b.className='b';b.textContent='상신 완료';toast('승인 요청을 상신했습니다.')}}]);
+  return}
+ const th=e.target.closest('th');
+ if(th){const tb=th.closest('table'),i=[...th.parentNode.children].indexOf(th),asc=!th.classList.contains('so');
+  $$('th',tb).forEach(x=>x.classList.remove('so','sd'));th.classList.add(asc?'so':'sd');
+  const body=$('tbody',tb),rows=[...body.children];
+  rows.sort((a,c)=>{const x=a.children[i].textContent.trim(),y=c.children[i].textContent.trim();const nx=parseFloat(x.replace(/[^\d.]/g,'')),ny=parseFloat(y.replace(/[^\d.]/g,''));
+   const r=(!isNaN(nx)&&!isNaN(ny)&&/^\d/.test(x)&&/^\d/.test(y))?nx-ny:x.localeCompare(y,'ko');return asc?r:-r});
+  rows.forEach(r=>body.appendChild(r));return}
+ const tr=e.target.closest('tbody tr');
+ if(tr&&!tr.closest('.kv')){const info=tblInfo(tr);let masked=false;
+  const pairs=info.map(([h,td])=>{if(td.querySelector('.mk')){masked=true;return [h,td.textContent.replace(/■+/g,'').trim()+' <span class="lk">(열람 권한 부족)</span>']}return [h,td.innerHTML]});
+  const id=tr.children[0].textContent.trim().split(' ')[0];
+  let foot='';if(masked){logAccess('제한 정보 열람 시도 '+id);foot='<div class="mt" style="color:#6e5822">일부 항목은 현재 계정의 열람 등급으로 볼 수 없습니다. 열람 시도는 감사 로그에 기록되었습니다.</div>'}
+  return modal(id,kvh(pairs)+foot)}
+ const li=e.target.closest('.ls li');
+ if(li){const tg=li.querySelector('.tg').textContent,tt=li.querySelector('.tt').textContent,dt=li.querySelector('.dt').textContent;
+  li.querySelector('.nw')&&li.querySelector('.nw').remove();
+  return modal('['+tg+'] '+tt,'<div class="mt">게시일 2155.'+dt+'<br><br>해당 사안의 세부 내용은 관련 부서 공문과 내부 결재 문서를 따릅니다. 문의는 담당 부서 내선으로 해 주십시오.</div>')}
+ const ln=e.target.closest('.lnb a');
+ if(ln&&!ln.classList.contains('on'))return toast('‘'+ln.firstChild.textContent+'’ 화면은 이 데모에 포함되어 있지 않습니다.');
+ if(ln)return;
+ const u=e.target.closest('.util a');
+ if(u){const k=u.dataset.k;
+  if(k==='log')return modal('정보보호 안내 · 열람 기록','<div class="mt">본 시스템의 모든 열람·출력 내역은 기록되며 감사 대상입니다.</div>'+(logs.length?'<div class="mt" style="padding-top:0">'+logs.map(l=>'· '+l).join('<br>')+'</div>':'<div class="mt" style="padding-top:0;color:#6a7078">이번 세션의 기록이 없습니다.</div>'));
+  if(k==='out')return modal('로그아웃','<div class="mt">로그아웃하시겠습니까?</div>',[{t:'취소'},{t:'로그아웃',c:'p',f:()=>{document.body.innerHTML='<div style="padding:120px 0;text-align:center;color:#3a3f47;font-size:15px">로그아웃되었습니다.<br><br><a href="" style="color:#14284b">다시 접속</a></div>'}}])}
+ const pa=e.target.closest('.pn-h a');
+ if(pa)return toast('‘'+pa.textContent+'’ 화면은 이 데모에 포함되어 있지 않습니다.');
+});
+function doSearch(){const q=$('#q').value.trim().toLowerCase();if(!q)return;
+ for(const v of $$('.view')){for(const tr of $$('tbody tr',v)){if(tr.closest('.kv'))continue;if(tr.textContent.toLowerCase().includes(q)){show(v.id.slice(2));tr.scrollIntoView({block:'center'});tr.classList.remove('flash');void tr.offsetWidth;tr.classList.add('flash');logAccess('검색 "'+$('#q').value+'"');return}}}
+ toast('‘'+$('#q').value+'’에 해당하는 항목이 없습니다.')}
+$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch()});$('#qb').onclick=doSearch;
+show((location.hash||'#home').slice(1),false);
+window.addEventListener('hashchange',()=>show(location.hash.slice(1),false));
+</script></body></html>
